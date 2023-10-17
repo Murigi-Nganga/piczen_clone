@@ -16,7 +16,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   http: ^0.13.6
-  intl: ^0.17.0
+  intl: ^0.18.1
 
 dev_dependencies:
   bloc_test: ^9.1.1

@@ -1,9 +1,4 @@
 class Weather {
-
-  final double temp;
-  final double pressure;
-  final double humidity;
-  
   Weather({
     required this.temp,
     required this.pressure,
@@ -11,7 +6,12 @@ class Weather {
   });
 
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
-      temp: json['temp'] as double,
-      pressure: json['pressure'] as double,
-      humidity: json['humidity'] as double);
+        temp: double.parse(json['temp'].toString()),
+        pressure: double.parse(json['pressure'].toString()),
+        humidity: double.parse(json['humidity'].toString()),
+      );
+
+  final double temp;
+  final double pressure;
+  final double humidity;
 }

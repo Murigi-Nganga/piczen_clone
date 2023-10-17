@@ -10,11 +10,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
       debugShowCheckedModeBanner: false,
       home: BlocProvider(
         create: (context) => WeatherBloc(weatherRepo: WeatherRepository()),
-        child: const WeatherScreen(),
-      )
+        child: WeatherScreen(),
+      ),
     );
   }
 }

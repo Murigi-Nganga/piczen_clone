@@ -8,19 +8,18 @@ part 'weather_event.dart';
 part 'weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-
-  WeatherRepository weatherRepo;
-
   WeatherBloc({required this.weatherRepo}) : super(WeatherInitial()) {
     on<FetchWeather>((event, emit) async {
-        emit(WeatherLoading());
+      emit(WeatherLoading());
 
-        try{
-          final weather = await weatherRepo.getWeather(event.city);
-          emit(WeatherLoaded(weather: weather));
-        } catch (error) {
-          emit(WeatherError());
-        }
+      try {
+        final weather = await weatherRepo.getWeather(event.city);
+        emit(WeatherLoaded(weather: weather));
+      } catch (error) {
+        emit(WeatherError(error: error.toString()));
+      }
     });
   }
+
+  WeatherRepository weatherRepo;
 }

@@ -24,6 +24,10 @@ class WeatherLoaded extends WeatherState {
 }
 
 class WeatherError extends WeatherState {
+
+  const WeatherError({required this.error});
+  final String error;
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [error];
 }
